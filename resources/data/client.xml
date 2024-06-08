@@ -1,0 +1,42 @@
+<XML version="1.0" encoding="UTF-8"> 
+<client>
+<id>12345678</id>
+<name>Maria Gonzales</name>
+<subscriptionDate>2023/03/15</subscriptionDate>
+<phoneNumber>3215578130</phoneNumber>
+<email>maria.gonzales@uptc.edu.co</email>
+<fee>23000</fee>
+</client>
+<client>
+<id>12345679</id>
+<name>Orlando Morales</name>
+<subscriptionDate>2022/07/25</subscriptionDate>
+<phoneNumber>3215578145</phoneNumber>
+<email>orlando.morales@uptc.edu.co</email>
+<fee>23000</fee>
+</client>
+<client>
+<id>12345680</id>
+<name>Juana Paez</name>
+<subscriptionDate>2015/01/13</subscriptionDate>
+<phoneNumber>3215571230</phoneNumber>
+<email>juana.paez@uptc.edu.co</email>
+<fee>23000</fee>
+</client>
+<client>
+<id>12345681</id>
+<name>Carla Sarmiento</name>
+<subscriptionDate>2024/05/22</subscriptionDate>
+<phoneNumber>3252828130</phoneNumber>
+<email>carla.sarmiento@uptc.edu.co</email>
+<fee>23000</fee>
+</client>
+<client>
+<id>12345682</id>
+<name>Marcos Rodriguez</name>
+<subscriptionDate>2003/10/30</subscriptionDate>
+<phoneNumber>3235959130</phoneNumber>
+<email>marcos.rodriguez@uptc.edu.co</email>
+<fee>23000</fee>
+</client>
+</XML>
