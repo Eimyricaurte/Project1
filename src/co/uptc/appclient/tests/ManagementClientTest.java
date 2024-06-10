@@ -16,11 +16,11 @@ class ManagementClientTest {
 	private ManagementClient managementClient = new ManagementClient();
 	
 	private void escenarieOne() {
-		managementClient.addClient(new Client("12345678", "Maria Gonzales", "2023/03/15", "3215578130", "maria.gonzales@uptc.edu.co", "23000"));
-		managementClient.addClient(new Client("12345679", "Orlando Morales", "2022/07/25", "3215578145", "orlando.morales@uptc.edu.co", "23000"));
-		managementClient.addClient(new Client("12345680", "Juana Paez", "2015/01/13", "3215571230", "juana.paez@uptc.edu.co", "23000"));
-		managementClient.addClient(new Client("12345681", "Carla Sarmiento", "2024/05/22", "3252828130", "carla.sarmiento@uptc.edu.co", "23000"));
-		managementClient.addClient(new Client("12345682", "Marcos Rodriguez", "2003/10/30", "3235959130", "marcos.rodriguez@uptc.edu.co", "23000"));
+		managementClient.addClient(new Client("12345648", "Carlos Rios", "2018/03/05", "3214931736", "carlos.rios@uptc.edu.co"));
+		managementClient.addClient(new Client("12345649", "Regina Ariza", "2009/11/20", "3215578942", "regina.ariza@uptc.edu.co"));
+		managementClient.addClient(new Client("12345650", "Astrid Ortega", "2020/07/01", "3215537238", "astris.ortega@uptc.edu.co"));
+		managementClient.addClient(new Client("12345651", "Camilo Macias", "1993/04/28", "3215122222", "camilo.maciass@uptc.edu.co"));
+		managementClient.addClient(new Client("12345652", "Diana Rojas", "2023/12/06", "3215578156", "diana.rojas@uptc.edu.co"));
 		managementClient.dumpFile(ETypeFile.XML);
 	}
 	
@@ -30,11 +30,11 @@ class ManagementClientTest {
 	}
 	
 	private void escenarieThree() {
-		managementClient.addClient(new Client("12345648", "Carlos Rios", "2018/03/05", "3214931736", "carlos.rios@uptc.edu.co", "23000"));
-		managementClient.addClient(new Client("12345649", "Regina Ariza", "2009/11/20", "3215578942", "regina.ariza@uptc.edu.co", "23000"));
-		managementClient.addClient(new Client("12345650", "Astrid Ortega", "2020/07/01", "3215537238", "astris.ortega@uptc.edu.co", "23000"));
-		managementClient.addClient(new Client("12345651", "Camilo Macias", "1993/04/28", "3215122222", "camilo.maciass@uptc.edu.co", "45000"));
-		managementClient.addClient(new Client("12345652", "Diana Rojas", "2023/12/06", "3215578156", "diana.rojas@uptc.edu.co", "23000"));
+		managementClient.addClient(new Client("12345648", "Carlos Rios", "2018/03/05", "3214931736", "carlos.rios@uptc.edu.co"));
+		managementClient.addClient(new Client("12345649", "Regina Ariza", "2009/11/20", "3215578942", "regina.ariza@uptc.edu.co"));
+		managementClient.addClient(new Client("12345650", "Astrid Ortega", "2020/07/01", "3215537238", "astris.ortega@uptc.edu.co"));
+		managementClient.addClient(new Client("12345651", "Camilo Macias", "1993/04/28", "3215122222", "camilo.maciass@uptc.edu.co"));
+		managementClient.addClient(new Client("12345652", "Diana Rojas", "2023/12/06", "3215578156", "diana.rojas@uptc.edu.co"));
 
 		managementClient.dumpFile(ETypeFile.SERIALIZATE);
 		managementClient.setListClient(new ArrayList<>());
@@ -47,13 +47,57 @@ class ManagementClientTest {
 	private void escenarieFive() {
 		this.escenarieThree();
 		this.escenarieFour();
-		managementClient.deleteClientByName("12345652");
+		managementClient.deleteClientById("12345652");
 		managementClient.dumpFile(ETypeFile.SERIALIZATE);
 	}
 	
 	private void escenarieSix() {
 		managementClient.setListClient(new ArrayList<>());
 		managementClient.loadClient(ETypeFile.SERIALIZATE);
+	}
+	
+	private void escenarieSeven() {
+		managementClient.addClient(new Client("12345648", "Carlos Rios", "2018/03/05", "3214931736", "carlos.rios@uptc.edu.co"));
+		managementClient.addClient(new Client("12345649", "Regina Ariza", "2009/11/20", "3215578942", "regina.ariza@uptc.edu.co"));
+		managementClient.addClient(new Client("12345650", "Astrid Ortega", "2020/07/01", "3215537238", "astris.ortega@uptc.edu.co"));
+		managementClient.addClient(new Client("12345651", "Camilo Macias", "1993/04/28", "3215122222", "camilo.maciass@uptc.edu.co"));
+		managementClient.addClient(new Client("12345652", "Diana Rojas", "2023/12/06", "3215578156", "diana.rojas@uptc.edu.co"));
+
+		managementClient.dumpFile(ETypeFile.CSV);
+		managementClient.setListClient(new ArrayList<>());
+	}
+	
+	private void escenarieEight() {
+		managementClient.loadClient(ETypeFile.CSV);
+	}
+	
+	private void escenarieNine() {
+		managementClient.addClient(new Client("12345648", "Carlos Rios", "2018/03/05", "3214931736", "carlos.rios@uptc.edu.co"));
+		managementClient.addClient(new Client("12345649", "Regina Ariza", "2009/11/20", "3215578942", "regina.ariza@uptc.edu.co"));
+		managementClient.addClient(new Client("12345650", "Astrid Ortega", "2020/07/01", "3215537238", "astris.ortega@uptc.edu.co"));
+		managementClient.addClient(new Client("12345651", "Camilo Macias", "1993/04/28", "3215122222", "camilo.maciass@uptc.edu.co"));
+		managementClient.addClient(new Client("12345652", "Diana Rojas", "2023/12/06", "3215578156", "diana.rojas@uptc.edu.co"));
+
+		managementClient.dumpFile(ETypeFile.JSON);
+		managementClient.setListClient(new ArrayList<>());
+	}
+	
+	private void escenarieTen() {
+		managementClient.loadClient(ETypeFile.JSON);
+	}
+	
+	private void escenarieE() {
+		managementClient.addClient(new Client("12345648", "Carlos Rios", "2018/03/05", "3214931736", "carlos.rios@uptc.edu.co"));
+		managementClient.addClient(new Client("12345649", "Regina Ariza", "2009/11/20", "3215578942", "regina.ariza@uptc.edu.co"));
+		managementClient.addClient(new Client("12345650", "Astrid Ortega", "2020/07/01", "3215537238", "astris.ortega@uptc.edu.co"));
+		managementClient.addClient(new Client("12345651", "Camilo Macias", "1993/04/28", "3215122222", "camilo.maciass@uptc.edu.co"));
+		managementClient.addClient(new Client("12345652", "Diana Rojas", "2023/12/06", "3215578156", "diana.rojas@uptc.edu.co"));
+		managementClient.dumpFile(ETypeFile.TXT);
+	}
+	
+	private void escenarieT() {
+		managementClient.setListClient(new ArrayList<>());
+		managementClient.loadClient(ETypeFile.TXT);
 	}
 	
 	@Test
@@ -73,11 +117,32 @@ class ManagementClientTest {
 	}
 	
 	@Test
+	void testPersistenceJSON() {
+		this.escenarieNine();
+		this.escenarieTen();
+		assertEquals(5, managementClient.getListClient().size());
+	}
+	
+	@Test
+	void testPersistenceCSV() {
+		this.escenarieSeven();
+		this.escenarieEight();
+		assertEquals(5, managementClient.getListClient().size());
+	}
+	
+	@Test
+	void testPersistenceTxt() {
+		this.escenarieE();
+		this.escenarieT();
+		assertEquals(5, managementClient.getListClient().size());
+	}
+	
+	@Test
 	void testDeleteObject() {
 		this.escenarieFive();
 		this.escenarieSix();
 		assertEquals(5, managementClient.getListClient().size());
-		Client contacto = managementClient.findClientByName("12345678");
+		Client contacto = managementClient.findClientById("12345678");
 		assertNull(contacto);
 	}
 }

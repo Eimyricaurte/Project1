@@ -1,5 +1,8 @@
-<XML version="1.0" encoding="UTF-8">
-	<service>
-		
-	</service>
-</XML> 
+<XML version="1.0" encoding="UTF-8"> 
+<service>
+<idClient>123456</idClien>
+<id>dfghj</id>
+<name>dfgh</name>
+<price>fghj</price>
+</service>
+</XML>

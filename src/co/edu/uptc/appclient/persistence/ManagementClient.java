@@ -35,18 +35,18 @@ public class ManagementClient extends FilePlain implements IActionFile {
 		listClient.add(client);
 	}
 	
-	public Client findClientByName(String name) {
+	public Client findClientById(String id) {
 		for(Client client: this.listClient) {
-			if(client.getName().equals(name)) {
+			if(client.getName().equals(id)) {
 				return client;
 			}
 		}
 		return null;
 	}
 	
-	public void deleteClientByName(String name) {
-		if(!Objects.isNull(findClientByName(name))) {
-			this.listClient.remove(findClientByName(name));
+	public void deleteClientById(String id) {
+		if(!Objects.isNull(findClientById(id))) {
+			this.listClient.remove(findClientById(id));
 		}
 	}	
 	
@@ -94,8 +94,7 @@ public class ManagementClient extends FilePlain implements IActionFile {
 			 contentClient.append(client.getName()).append(Constants.SEMI_COLON);
 			 contentClient.append(client.getSubscriptionDate()).append(Constants.SEMI_COLON);
 			 contentClient.append(client.getPhoneNumber()).append(Constants.SEMI_COLON);
-			 contentClient.append(client.getEmail()).append(Constants.SEMI_COLON);
-			 contentClient.append(client.getFee());
+			 contentClient.append(client.getEmail());
 			 records.add(contentClient.toString());
 		 }
 		 this.writer(filePath, records);
@@ -111,8 +110,7 @@ public class ManagementClient extends FilePlain implements IActionFile {
 				String subscriptionDate = tokens.nextToken();
 				String phoneNumber = tokens.nextToken();
 				String email = tokens.nextToken();
-				String fee = tokens.nextToken();
-				listClient.add(new Client(id, name, subscriptionDate, phoneNumber, email, fee));
+				listClient.add(new Client(id, name, subscriptionDate, phoneNumber, email));
 			}
 		});
 	}
@@ -136,7 +134,6 @@ public class ManagementClient extends FilePlain implements IActionFile {
 			lines.append("<subscriptionDate>"+client.getSubscriptionDate()+"</subscriptionDate>\n");
 			lines.append("<phoneNumber>"+client.getPhoneNumber()+"</phoneNumber>\n");
 			lines.append("<email>"+client.getEmail()+"</email>\n");
-			lines.append("<fee>"+client.getFee()+"</fee>\n");
 			lines.append("</client>\n");
 		}
 		lines.append("</XML>");
@@ -156,8 +153,7 @@ public class ManagementClient extends FilePlain implements IActionFile {
 				String subscriptionDate = document.getElementsByTagName("subscriptionDate").item(i).getTextContent();
 				String phoneNumber = document.getElementsByTagName("phoneNumber").item(i).getTextContent();
 				String email = document.getElementsByTagName("email").item(i).getTextContent();
-				String fee = document.getElementsByTagName("fee").item(i).getTextContent();
-				this.listClient.add(new Client(id, name, subscriptionDate, phoneNumber, email, fee));
+				this.listClient.add(new Client(id, name, subscriptionDate, phoneNumber, email));
 			}
 		}catch(Exception e) {
 			System.out.println("Se presentó un error en el cargue del archivo XML");
@@ -179,9 +175,7 @@ public class ManagementClient extends FilePlain implements IActionFile {
 			stringJSON.append("\"phoneNumber\":\"").append(listClient.get(i)
 					.getPhoneNumber()).append("\",\n");
 			stringJSON.append("\"email\":\"").append(listClient.get(i).getEmail())
-				.append("\",\n");
-			stringJSON.append("\"fee\":\"").append(listClient.get(i)
-					.getFee()).append("\"\n");
+				.append("\"\n");
 			stringJSON.append("}");
 			if(i < this.listClient.size() - 1) {
 				stringJSON.append(", \n");
@@ -208,7 +202,7 @@ public class ManagementClient extends FilePlain implements IActionFile {
         for (String obj : objects) {
             obj = obj.replace("{", "").replace("}", "");
             String[] fields = obj.split(",");
-            String id = "", name = "", subscriptionDate = "", phoneNumber = "", email = "", fee = "";
+            String id = "", name = "", subscriptionDate = "", phoneNumber = "", email = "";
             for(String field: fields) {
             	String[] keyValue = field.split(":");
             	String key = keyValue[0].trim().replace("\"", "");
@@ -228,13 +222,9 @@ public class ManagementClient extends FilePlain implements IActionFile {
 	                	break;
 	                case "email":
 	                	email = value;
-	                	break;
-	                case "fee":
-	                	fee = value;
-	                	break;
-                }
+	                	break;                }
             }
-            this.listClient.add(new Client(id, name, subscriptionDate, phoneNumber, email, fee));
+            this.listClient.add(new Client(id, name, subscriptionDate, phoneNumber, email));
         }
 	}
 	

@@ -4,8 +4,8 @@ public class Main {
 	
 
 	public static void main(String[] args) {
-		PScreen ps = new PScreen();
-		ps.getCh().setVisible(true);
+		PrincipalScreen ps = new PrincipalScreen();
+		ps.setVisible(true);
 		
 
 	}

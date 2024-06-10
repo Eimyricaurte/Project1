@@ -26,7 +26,7 @@ public class PrincipalScreen extends JFrame {
 	
 	public void buildComponents() {
 		this.jme = new JMenuExtensions(this);
-		this.pbs = new PanelButtonsSouth();
+		this.pbs = new PanelButtonsSouth(this);
 		this.pc = new PanelClient();
 		
 	}

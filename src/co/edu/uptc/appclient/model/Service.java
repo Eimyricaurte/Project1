@@ -1,7 +1,14 @@
 package co.edu.uptc.appclient.model;
 
-public class Service {
+import java.io.*;
+
+public class Service implements Serializable{
 	
+	/**
+	 * 
+	 */
+	public static final long serialVersionUID = 1L;
+
 	private String id;
 	
 	private String name;

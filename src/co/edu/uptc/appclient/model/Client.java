@@ -13,16 +13,14 @@ public class Client implements Serializable {
 	private String subscriptionDate;
 	private String phoneNumber;
 	private String email;
-	private String fee;
 	
-	public Client(String id, String name, String subscriptionDate, String phoneNumber, String email, String fee) {
+	public Client(String id, String name, String subscriptionDate, String phoneNumber, String email) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.subscriptionDate = subscriptionDate;
 		this.phoneNumber = phoneNumber;
 		this.email = email;
-		this.fee = fee;
 	}
 
 	public Client() {
@@ -69,18 +67,11 @@ public class Client implements Serializable {
 		this.email = email;
 	}
 
-	public String getFee() {
-		return fee;
-	}
-
-	public void setFee(String fee) {
-		this.fee = fee;
-	}
 
 	@Override
 	public String toString() {
 		return "Client [id=" + id + ", name=" + name + ", subscriptionDate=" + subscriptionDate + ", phoneNumber="
-				+ phoneNumber + ", email=" + email + ", fee=" + fee + "]";
+				+ phoneNumber + ", email=" + email + "]";
 	}
 
 	

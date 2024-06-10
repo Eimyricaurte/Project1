@@ -9,18 +9,28 @@ public class PScreen extends JFrame{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Chat ch;
+	private AddClient ac;
+	private AddService as;
 	
 	public PScreen() {
-		this.ch = new Chat();
+		this.ac = new AddClient(this);
+		this.as = new AddService(this);
 	}
 
-	public Chat getCh() {
-		return ch;
+	public AddService getAs() {
+		return as;
 	}
 
-	public void setCh(Chat ch) {
-		this.ch = ch;
+	public void setAs(AddService as) {
+		this.as = as;
+	}
+
+	public AddClient getAc() {
+		return ac;
+	}
+
+	public void setAc(AddClient ac) {
+		this.ac = ac;
 	}
 
 

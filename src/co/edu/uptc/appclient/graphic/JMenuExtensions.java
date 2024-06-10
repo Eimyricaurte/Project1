@@ -16,7 +16,6 @@ public class JMenuExtensions extends JMenuBar {
 	private JMenu menuService;
 	private JMenuItem menuItemAddService;
 	private JMenuItem menuItemDeleteservice;
-	private JMenuItem menuItemShowService;
 	
 	private JMenu loadData;
 	private JMenuItem client;
@@ -59,7 +58,6 @@ public class JMenuExtensions extends JMenuBar {
 		
 		this.menuService = new JMenu("Servicios");
 		this.menuItemAddService = new JMenuItem("Agregar servicio");
-		this.menuItemShowService = new JMenuItem("Ver servicio");
 		this.menuItemDeleteservice = new JMenuItem("Eliminar servicio");
 		
 		this.loadData = new JMenu("Cargar info.");
@@ -82,6 +80,15 @@ public class JMenuExtensions extends JMenuBar {
 	}
 	
 	public void addComponents() {
+		this.menuItemAddUser.setActionCommand(me.ADD_CLIENT);
+		this.menuItemAddUser.addActionListener(me);
+		
+		this.menuItemDeleteUser.setActionCommand(me.DELETE_CLIENT);
+		this.menuItemDeleteUser.addActionListener(me);
+		
+		this.menuItemAddService.setActionCommand(me.ADD_SERVICE);
+		this.menuItemAddService.addActionListener(me);
+		
 		this.client.setActionCommand(me.LOAD_CLIENT_FILE_PLAIN);
 		this.client.addActionListener(this.me);
 		
@@ -117,7 +124,6 @@ public class JMenuExtensions extends JMenuBar {
 		this.add(this.menuUser);
 		
 		this.menuService.add(this.menuItemAddService);
-		this.menuService.add(this.menuItemShowService);
 		this.menuService.add(this.menuItemDeleteservice);
 		this.add(this.menuService);
 		

@@ -30,22 +30,22 @@ public class ManagementService  extends FilePlain implements IActionFile {
 		this.listService = new ArrayList<>();
 	}
 	
-	public void addClient(Service service) {
+	public void addService(Service service) {
 		listService.add(service);
 	}
 	
-	public Service findServiceByName(String name) {
+	public Service findServiceById(String id) {
 		for(Service service: this.listService) {
-			if(service.getName().equals(name)) {
+			if(service.getName().equals(id)) {
 				return service;
 			}
 		}
 		return null;
 	}
 	
-	public void deleteServiceByName(String name) {
-		if(!Objects.isNull(findServiceByName(name))) {
-			this.listService.remove(findServiceByName(name));
+	public void deleteServiceById(String id) {
+		if(!Objects.isNull(findServiceById(id))) {
+			this.listService.remove(findServiceById(id));
 		}
 	}	
 	
@@ -224,7 +224,7 @@ public class ManagementService  extends FilePlain implements IActionFile {
 				this.cValue.getPath()
 				.concat(this.cValue.getNameFileSer()));
 	             ObjectOutputStream out = new ObjectOutputStream(fileOut)) {
-	            out.writeObject(this.listService);
+				out.writeObject(this.listService);
 	    } catch (IOException i) {
 	    	i.printStackTrace();
 	    }
@@ -263,9 +263,5 @@ public class ManagementService  extends FilePlain implements IActionFile {
 		// TODO Auto-generated method stub
 		
 	}
-
-
-
-	
 
 }

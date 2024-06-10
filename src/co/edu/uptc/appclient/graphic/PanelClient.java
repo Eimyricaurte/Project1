@@ -25,7 +25,7 @@ public class PanelClient extends JPanel{
 	}
 	
 	private void buildComponents() {
-		String [] titles = {"Nombre", "Codigo", "Fecha de suscripcion", "Numero de telefono", "Email", "Saldo"};
+		String [] titles = {"Nombre", "Codigo", "Fecha de suscripcion", "Numero de telefono", "Email"};
 		this.dtm = new DefaultTableModel(titles, 0);
 		table = new JTable(dtm);
 	}
